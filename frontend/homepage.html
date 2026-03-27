@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>StudyHub – Study Buddies</title>
+    <link href="assets/css/homepage.css" rel="stylesheet" />
+    <script src="assets/scripts/homepage.js" defer></script>
+  </head>
+  <body>
+    
+    <header>
+      <div>
+        <h1 id="welcome">Welcome to StudyHub, Demo Student! 👋</h1>
+        <p>
+          Find study buddies and start collaborating on your learning journey
+        </p>
+      </div>
+
+      <nav aria-label="Primary actions">
+        <button type="button" id="openProfileModal">
+          + Create Your Profile Post
+        </button>
+
+        <dialog id="profileModal">
+          <form id="profileForm">
+            <header>
+              <h2 id="profileModalTitle">Create Your Study Profile</h2>
+              <button type="button" id="closeProfileModal">×</button>
+            </header>
+
+            <section aria-label="Profile summary">
+              <div aria-hidden="true">🧑‍🎓</div>
+              <div>
+                <h3>Demo Student</h3>
+                <p>Your profile will be visible to all students</p>
+              </div>
+            </section>
+
+            <section aria-label="Study profile form">
+              <div>
+                <label for="studyField"
+                  >Primary Study Field <span aria-hidden="true">*</span></label
+                >
+                <select id="studyField" name="studyField" required>
+                  <option value="" disabled>Select a field…</option>
+                  <option value="computer-science" selected>
+                    Computer Science
+                  </option>
+                  <option value="mathematics">Mathematics</option>
+                  <option value="physics">Physics</option>
+                  <option value="chemistry">Chemistry</option>
+                  <option value="biology">Biology</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="literature">Literature</option>
+                  <option value="business">Business</option>
+                  <option value="psychology">Psychology</option>
+                  <option value="medicine">Medicine</option>
+                  <option value="art-design">Art &amp; Design</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="subjects"
+                  >Subjects/Topics (comma separated)
+                  <span aria-hidden="true">*</span></label
+                >
+                <input
+                  id="subjects"
+                  name="subjects"
+                  type="text"
+                  required
+                  placeholder="e.g., Calculus, Linear Algebra, Statistics"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div>
+                <label for="lookingFor"
+                  >What are you looking for?
+                  <span aria-hidden="true">*</span></label
+                >
+                <textarea
+                  id="lookingFor"
+                  name="lookingFor"
+                  rows="5"
+                  required
+                  placeholder="Describe what kind of study partner or group you're looking for..."
+                ></textarea>
+              </div>
+
+              <div>
+                <label for="availability"
+                  >Availability <span aria-hidden="true">*</span></label
+                >
+                <input
+                  id="availability"
+                  name="availability"
+                  type="text"
+                  required
+                  placeholder="e.g., Weekday evenings, Weekend mornings"
+                  autocomplete="off"
+                />
+              </div>
+            </section>
+
+            <footer>
+              <button type="submit" id="createProfileBtn" value="create">
+                Create Profile &amp; Continue
+              </button>
+              <button type="button" id="cancelProfileModal">Cancel</button>
+            </footer>
+          </form>
+        </dialog>
+        <button type="button" onclick="window.location.href='channels.html'">Continue to Platform</button>
+        <button type="button" onclick="window.location.href='newsfeed.html'">Newsfeed</button>
+        <button type="button" class="logout-btn" id ="logout-btn" onclick="window.location.href='login.html'">Log Out</button>
+
+      </nav>
+
+    </header>
+
+
+    <main>
+      <section aria-label="Study buddies page layout">
+
+        <aside aria-label="Study fields filters">
+          <h2>Study Fields</h2>
+          <ul>
+            <li>
+              <button type="button" aria-current="true">All Fields</button>
+            </li>
+            <li><button type="button">Mathematics</button></li>
+            <li><button type="button">Computer Science</button></li>
+            <li><button type="button">Physics</button></li>
+            <li><button type="button">Chemistry</button></li>
+            <li><button type="button">Biology</button></li>
+            <li><button type="button">Engineering</button></li>
+            <li><button type="button">Literature</button></li>
+            <li><button type="button">Business</button></li>
+            <li><button type="button">Psychology</button></li>
+            <li><button type="button">Medicine</button></li>
+            <li><button type="button">Art & Design</button></li>
+          </ul>
+        </aside>
+
+        <!-- Right content -->
+        <section aria-label="Study buddies results">
+          <!-- Search -->
+          <form role="search" aria-label="Search study buddies">
+            <label for="buddySearch">Search by name, subject, or field…</label>
+            <input
+              id="buddySearch"
+              name="q"
+              type="search"
+              placeholder="Search by name, subject, or field..."
+            />
+          </form>
+
+          <h2 id="heading"></h2>
+
+          <!-- Cards -->
+          <section aria-label="Study buddy cards" id="container">
+            <article id="userProfile">
+              <header>
+                <div aria-hidden="true">👨‍💻</div>
+                <div>
+                  <h3 id="userName"></h3>
+                  <p id="studyField"></p>
+                </div>
+                <!-- <div aria-label="Connections">12</div> -->
+              </header>
+
+              <p id="lookingFor"></p>
+
+              <ul aria-label="Topics" id="subjects">
+                <li></li>
+              </ul>
+
+              <ul aria-label="Availability and format" id="availability">
+                <li></li>                
+              </ul>
+              <button type="button">Connect</button>
+            </article>
+
+          </section>
+        </section>
+      </section>
+    </main>
+   
+  </body>
+</html>

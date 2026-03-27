@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Newsfeed</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/frontend/assets/css/newsfeed.css"/>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <a href="homepage.html">
+      <svg class="home-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+      </svg>
+    </a>
+    <div class="header-title">
+      <h1>Study Newsfeed</h1>
+      <p>Connect and share with students from all fields</p>
+    </div>
+  </div>
+  <button class="btn-new">
+    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+    </svg>
+    New Post
+  </button>
+</header>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section-title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M4.25 5.61C6.27 8.2 10 13 10 13v6c0 .55.45 1 1 1h2c.55 0 1-.45 1-1v-6s3.72-4.8 5.74-7.39A.998.998 0 0 0 18.95 4H5.04a1 1 0 0 0-.79 1.61z"/>
+      </svg>
+      Filter by Field
+    </div>
+    <ul class="filter-list">
+      <li class="active">All Fields</li>
+      <li>Mathematics</li>
+      <li>Computer Science</li>
+      <li>Physics</li>
+      <li>Chemistry</li>
+      <li>Biology</li>
+      <li>Engineering</li>
+      <li>Literature</li>
+      <li>Business</li>
+      <li>Psychology</li>
+      <li>Medicine</li>
+      <li>Art &amp; Design</li>
+    </ul>
+
+    <hr class="sidebar-divider"/>
+
+    <div class="trending-title">
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+      </svg>
+      Trending Topics
+    </div>
+    <ul class="trending-list">
+      <li><div class="tag">#ExamPrep</div><div class="count">124 posts</div></li>
+      <li><div class="tag">#StudyTips</div><div class="count">98 posts</div></li>
+      <li><div class="tag">#ProjectHelp</div><div class="count">76 posts</div></li>
+    </ul>
+  </aside>
+
+  <!-- SINGLE POST CARD -->
+  <div class="post-card">
+    <div class="post-header">
+      <div class="avatar">👩‍💻</div>
+      <div class="post-meta">
+        <span class="post-author">Alex Chen</span>
+        <div class="post-info">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+          </svg>
+          3/5/2026
+          <span class="dot">●</span>
+          <div class="post-field">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/>
+            </svg>
+            Computer Science
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="post-body">
+      Just finished my data structures project! Anyone else working on implementing AVL trees?
+      Would love to discuss optimization strategies. 🌱
+    </p>
+
+    <hr class="post-divider"/>
+
+    <div class="post-actions">
+      <button class="action-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M1 21h4V9H1v12zm22-11c0-1.1-.9-2-2-2h-6.31l.95-4.57.03-.32c0-.41-.17-.79-.44-1.06L14.17 1 7.59 7.59C7.22 7.95 7 8.45 7 9v10c0 1.1.9 2 2 2h9c.83 0 1.54-.5 1.84-1.22l3.02-7.05c.09-.23.14-.47.14-.73v-2z"/>
+        </svg>
+        24
+      </button>
+      <button class="action-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/>
+        </svg>
+        8
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Filter active state
+  document.querySelectorAll('.filter-list li').forEach(li => {
+    li.addEventListener('click', () => {
+      document.querySelectorAll('.filter-list li').forEach(i => i.classList.remove('active'));
+      li.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

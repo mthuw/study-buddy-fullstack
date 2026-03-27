@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="assets/css/login.css" rel="stylesheet" />
+    <script src="assets/scripts/login.js"></script>
+</head>
+
+<body>
+    <img class="login-logo"
+        src="assets/images/book.png" />
+    <h1>Study Hub</h1>
+    <form action="" method="post" class="login-form" id="login-form">
+        <h3>Welcome Back</h3>
+        <p>Login to continue your study journey</p>
+        <label for="Email">Email Address</label>
+        <div class="input-icon">
+            <img src="assets/images/mail.png" alt="" class="icon">
+            <input id="Email" type="email" placeholder="Enter your email" />
+        </div>
+        <label for="Password">Password</label>
+        <div class="input-icon">
+            <img src="assets/images/password.png" alt="" class="icon">
+            <input id="Password" type="password" placeholder="Enter your password" />
+        </div>
+
+        <div id="status" style="text-align: center; padding-top: 10px; color: red; display: none;">Incorrect password or Email</div>
+        <div class="remember-forgot">
+            <input type="checkbox" id="remember" />
+            <label for="remember">Remember me</label>
+            <a>Forgot password?</a>
+        </div>
+        <button type="submit" id="loginButton">Login</button>
+        <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+</body>
+
+</html>

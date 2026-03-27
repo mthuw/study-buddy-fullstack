@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StudyHub - Create Account</title>
+  <link rel="stylesheet" href="assets/css/signup.css" />
+  <script src="/frontend/assets/scripts/signup.js"></script>
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="brand">
+      <img src="assets/images/book.png"/>
+      <h1>StudyHub</h1>
+      <p>Connect, Study, Succeed Together</p>
+    </header>
+
+    <main class="card">
+      <form class="signup-form" id = "signup-form">
+        <h2>Create Account</h2>
+        <p class="sub">Join our study community today</p>
+
+        <label for="username">User Name</label>
+        <div class="field">
+          <span class="icon left" aria-hidden="true">👤</span>
+          <input id="username" name="username" type="text" placeholder="Enter your user name" required />
+        </div>
+
+        <label for="email">Email Address</label>
+        <div class="field">
+          <span class="icon left" aria-hidden="true">✉️</span>
+          <input id="email" name="email" type="email" placeholder="Enter your email" required />
+        </div>
+
+        <label for="password">Password</label>
+        <div class="field">
+          <span class="icon left" aria-hidden="true">🔒</span>
+          <input id="password" name="password" type="password" placeholder="Enter your password" required />
+          <button class="icon-btn right" type="button" aria-label="Show password">👁️</button>
+        </div>
+
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="field">
+          <span class="icon left" aria-hidden="true">🔒</span>
+          <input id="confirmPassword" name="confirmPassword" type="password" placeholder="Confirm your password" required />
+        </div>
+
+        <section class="avatar-section" aria-label="Choose your avatar">
+          <h3 class="avatar-title">Choose Your Avatar</h3>
+
+          <div class="avatar-grid">
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar1" checked />
+              <span class="avatar-box" aria-hidden="true">👤</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar2" />
+              <span class="avatar-box" aria-hidden="true">👨</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar3" />
+              <span class="avatar-box" aria-hidden="true">👩</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar4" />
+              <span class="avatar-box" aria-hidden="true">👨‍🦰</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar5" />
+              <span class="avatar-box" aria-hidden="true">👩‍🦰</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar6" />
+              <span class="avatar-box" aria-hidden="true">👱‍♂️</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar7" />
+              <span class="avatar-box" aria-hidden="true">🧔</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar8" />
+              <span class="avatar-box" aria-hidden="true">👵</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar9" />
+              <span class="avatar-box" aria-hidden="true">👩‍💻</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar10" />
+              <span class="avatar-box" aria-hidden="true">👨‍💻</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar11" />
+              <span class="avatar-box" aria-hidden="true">👮‍♂️</span>
+            </label>
+
+            <label class="avatar-option">
+              <input type="radio" name="avatar" value="avatar12" />
+              <span class="avatar-box" aria-hidden="true">👮‍♀️</span>
+            </label>
+          </div>
+        </section>
+
+        <button id="submitBtn" class="primary-btn" type="submit">Create Account</button>
+
+        <p class="footer-line">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </main>
+
+  </div>
+
+  <script>
+    const btn = document.querySelector('.icon-btn');
+    const pwd = document.getElementById('password');
+    if (btn && pwd) {
+      btn.addEventListener('click', () => {
+        const isPassword = pwd.type === 'password';
+        pwd.type = isPassword ? 'text' : 'password';
+        btn.textContent = isPassword ? '🙈' : '👁️';
+      });
+    }
+  </script>
+</body>
+</html>
+
