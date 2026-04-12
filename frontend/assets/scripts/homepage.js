@@ -1,7 +1,9 @@
-console.log("app.js loaded ✅");
-
-document.addEventListener("DOMContentLoaded", () => {
-  
+document.addEventListener("DOMContentLoaded", async () => {
+  const user = await getCurrentUser();
+  const welcome = document.getElementById("welcome");
+  if (user) {
+    welcome.innerHTML = `<h1>Welcome to StudyHub, ${user.UserName}! 👋</h1>`;
+  }
   const openBtn = document.getElementById("openProfileModal");
   const modal = document.getElementById("profileModal");
   const form = document.getElementById("profileForm");
@@ -27,10 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target === modal) closeModal();
   });
 
-  // Submit: validate then close (demo behavior)
   form.addEventListener("submit", async (e) => {
-    e.preventDefault(); 
-    
+    e.preventDefault();
+
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
@@ -39,22 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = Object.fromEntries(new FormData(form).entries());
     const { studyField, subjects, lookingFor, availability } = data;
     try {
-        const response = await fetch("http://localhost:3000/api/profilePost/newProfilePost", {
+      const response = await fetch(
+        "http://localhost:3000/api/profilePost/newProfilePost",
+        {
           method: "POST",
-          headers: {"Content-Type": "application/json",},
+          headers: { "Content-Type": "application/json" },
           credentials: "include",
-          body: JSON.stringify({ studyField, subjects, lookingFor, availability })
-        });
-        const result = await response.json();
-        console.log(result)
-        if (response.ok){
-          closeModal();
-          form.reset();
-          getData();
-        }
-      } catch (error) {
-        console.error("Error:", error);
+          body: JSON.stringify({
+            studyField,
+            subjects,
+            lookingFor,
+            availability,
+          }),
+        },
+      );
+      const result = await response.json();
+      console.log(result);
+      if (response.ok) {
+        closeModal();
+        form.reset();
+        getData();
       }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   });
 });
 
@@ -65,15 +74,15 @@ async function getData() {
   try {
     const response = await fetch(url, {
       method: "GET",
-      headers: {"Content-Type": "application/json",},
-      credentials: "include"
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
     });
     const result = await response.json();
     console.log(result);
-    // const welcome = document.getElementById("welcome");
-    // welcome.innerHTML = `<h1>Welcome to StudyHub, ${result.message}! 👋</h1>`
-    heading.innerHTML = `<h4>${result.length} Study Buddies Available</h4>`
-    container.innerHTML = result.map(user => `
+    heading.innerHTML = `<h4>${result.length} Study Buddies Available</h4>`;
+    container.innerHTML = result
+      .map(
+        (user) => `
             <article>
               <header>
                 <div aria-hidden="true">👨‍💻</div>
@@ -87,7 +96,10 @@ async function getData() {
               <p>${user.lookingFor}</p>
 
               <ul aria-label="Topics" id="subjects">
-                  ${user.subjects.split(",").map(subject=>`<li>${subject.trim()}</li>`).join("")}
+                  ${user.subjects
+                    .split(",")
+                    .map((subject) => `<li>${subject.trim()}</li>`)
+                    .join("")}
                 
               </ul>
 
@@ -97,14 +109,36 @@ async function getData() {
               </ul>
 
               <button type="button">Connect</button>
-            </article>`).join("");
-    
+            </article>`,
+      )
+      .join("");
   } catch (error) {
     console.error(error.message);
   }
 }
 
-async function logout(){
-  const btn = document.getElementById("logout-btn");
+async function logout() {
+  try {
+    const res = await fetch("http://localhost:3000/api/users/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    if (res.ok) {
+      window.location.href = "login.html";
+    }
+  } catch (error) {}
+}
+async function getCurrentUser() {
+  try {
+    const res = await fetch("http://localhost:3000/api/users/me", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    });
+    const result = await res.json();
+    return result;
+  } catch (error) {
+    console.error("Error fetching user:", error);
+  }
 }
 getData();

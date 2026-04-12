@@ -1,7 +1,7 @@
-export const adminrAuth = async (req, res, next) =>{
+export const adminAuth = async (req, res, next) =>{
     try {
         if (!req.session.UserID){
-            return res.status.json({message: "Admin not found", success: false})
+            return res.status(400).json({message: "Admin not found", success: false})
         }
         req.user = {
             UserID: req.session.UserID,
