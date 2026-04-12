@@ -1,7 +1,4 @@
-/* ============================================================
-   Reset & Base Styles
-   ============================================================ */
-* {
+gi* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -17,9 +14,6 @@ body {
     color: #333;
 }
 
-/* ============================================================
-   Login Container & Card
-   ============================================================ */
 .login-container {
     width: 100%;
     max-width: 400px;
@@ -50,9 +44,6 @@ body {
     color: #666;
 }
 
-/* ============================================================
-   Form Elements
-   ============================================================ */
 .form-group {
     margin-bottom: 20px;
 }
@@ -76,7 +67,7 @@ body {
 }
 
 .form-group input:focus {
-    border-color: #5b5fc7; /* Matches typical dashboard primary colors */
+    border-color: #5b5fc7; 
     box-shadow: 0 0 0 3px rgba(91, 95, 199, 0.15);
 }
 
@@ -84,9 +75,7 @@ body {
     color: #a0aec0;
 }
 
-/* ============================================================
-   Button & Error States
-   ============================================================ */
+
 .login-btn {
     width: 100%;
     background-color: #5b5fc7;
@@ -113,5 +102,5 @@ body {
     font-size: 13px;
     margin-bottom: 15px;
     text-align: center;
-    display: none; /* Change to block via JS to show errors */
+    display: none; 
 }
