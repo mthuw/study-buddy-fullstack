@@ -1,5 +1,7 @@
 import { dbMySQL } from "../config/mysql.js";
 import bcrypt from "bcrypt";
+import { randomInt } from "crypto";
+import { sendOtpEmail } from "../utils/sendOtpEmail.js";
 
 export const registerUser = async (req, res) => {
   try {
@@ -79,16 +81,32 @@ export const loginUser = async (req, res) => {
     if (users.length === 0) {
       return res.status(404).json({ error: "User not found in users table" });
     }
-    req.session.UserID = users[0].UserID;
-    req.session.UserName = users[0].UserName;
+    const otp = randomInt(100000, 1000000).toString();
+    const otpHash = await bcrypt.hash(otp, 10);
+
+    req.session.pendingLogin = {
+      UserID: users[0].UserID,
+      UserName: users[0].UserName,
+      Email,
+      otpHash,
+      otpExpiresAt: Date.now() + 5 * 60 * 1000, // 5 minutes
+      otpAttempts: 0,
+    };
+    console.log(`OTP for ${Email}: ${otp}`);
+    const previewUrl = await sendOtpEmail(Email, otp);
 
     req.session.save((e) => {
-      if (e) console.error("Session save error:", e);
-      console.log("Session after login:", req.session);
+      if (e) {
+        console.error("Session save error:", e);
+        return res.status(500).json({ error: "Session save failed" });
+      }
+
       return res.status(200).json({
-        message: users[0].UserName,
+        message: "OTP required",
         success: true,
-        redirectTo: "http://localhost:5500/frontend/homepage.html",
+        otpRequired: true,
+        redirectTo: "http://localhost:5500/frontend/otp.html",
+        previewUrl,
       });
     });
   } catch (error) {

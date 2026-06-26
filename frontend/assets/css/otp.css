@@ -1,0 +1,101 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+
+.otp-container {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.otp-container h2 {
+    color: #2b2b2b;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.otp-container p {
+    color: #6c757d;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+
+
+.otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+.otp-field {
+    width: 45px;
+    height: 55px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.otp-field:focus {
+    border-color: #5a54ff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+}
+
+.verify-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #5a54ff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.verify-btn:hover {
+    background-color: #0052cc;
+}
+
+
+.resend-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.resend-text a {
+    color: #0066ff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.resend-text a:hover {
+    color: #0052cc;
+    text-decoration: underline;
+}
