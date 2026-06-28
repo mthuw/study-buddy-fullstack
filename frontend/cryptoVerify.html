@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptographic Verification</title>
+
+  <link rel="stylesheet" href="./assets/css/cryptoVerify.css" />
+  <script src="./assets/scripts/cryptoVerify.js" defer></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+      <div class="icon">🔐</div>
+
+      <h1>Cryptographic Verification</h1>
+      <p class="subtitle">
+        Step 3 of Triple Factor Authentication
+      </p>
+
+      <div class="info-box">
+        <p>
+          Your device must prove that it owns the private key linked to your account.
+        </p>
+      </div>
+
+      <div class="challenge-section">
+        <label for="challenge">Server Challenge</label>
+        <input
+          type="text"
+          id="challenge"
+          value="Waiting for challenge..."
+          readonly
+        />
+      </div>
+
+      <button id="verifyDeviceBtn">
+        Verify This Device
+      </button>
+
+      <p id="statusMessage" class="status">
+        Please click the button to complete cryptographic verification.
+      </p>
+
+      <a href="./login.html" class="back-link">Back to Login</a>
+    </div>
+  </div>
+
+  <!-- Add your JavaScript later -->
+  <!-- <script src="cryptoVerify.js"></script> -->
+
+</body>
+</html>

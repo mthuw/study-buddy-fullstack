@@ -1,30 +1,21 @@
-:root {
-  --bg: #0b1220; --panel: #0f1829; --panel2: #111b2e; --card: #121e33;
-  --border: rgba(255,255,255,.10); --text: rgba(255,255,255,.92); --muted: rgba(255,255,255,.65); --muted2: rgba(255,255,255,.50);
-  --accent: #5b4dff; --accent2: #6b5bff;
-  --chipBg: rgba(91,77,255,.18); --chipText: rgba(220,216,255,.95);
-  --shadow: 0 18px 40px rgba(0,0,0,.35); --radius: 18px; --radius2: 14px;
-}
-
 *, html, body { box-sizing: border-box; }
 html, body { min-height: 100%; }
 body {
   margin: 0;
   font-family: ui-sans-serif, "Segoe UI", Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  color: var(--text);
+  color: rgba(255,255,255,.92);
   background:
     radial-gradient(1200px 600px at 40% -10%, rgba(91,77,255,.18), transparent 55%),
     radial-gradient(900px 500px at 80% 10%, rgba(52,211,153,.10), transparent 50%),
-    var(--bg);
+    #0b1220;
 }
 
 body > header, body > main { max-width: 1180px; margin: 0 auto; padding: 22px; }
 
-/* ── BASE BUTTON ── */
 button, .logout-btn {
   font: inherit;
-  color: var(--text);
-  border: 1px solid var(--border);
+  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.05);
   border-radius: 12px;
   padding: 12px 14px;
@@ -44,16 +35,15 @@ button:active { transform: translateY(1px); }
   border-color: #7f1d1d;
 }
 
-/* ── HEADER ── */
 body > header {
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(255,255,255,.10);
   border-radius: 20px;
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  box-shadow: var(--shadow);
+  box-shadow: 0 18px 40px rgba(0,0,0,.35);
   display: flex;
-  flex-direction: column;        /* stack title and nav vertically */
+  flex-direction: column;
   align-items: flex-start;
   gap: 0;
   padding: 28px 28px 24px;
@@ -61,9 +51,8 @@ body > header {
 
 body > header > div { position: relative; }
 body > header h1 { margin: 0 0 8px; font-size: 34px; letter-spacing: .2px; }
-body > header p  { margin: 0; font-size: 14px; color: var(--muted); }
+body > header p  { margin: 0; font-size: 14px; color: rgba(255,255,255,.65); }
 
-/* ── NAV BUTTONS — horizontal, left-aligned, below text ── */
 body > header nav {
   position: relative;
   display: flex;
@@ -83,27 +72,23 @@ body > header nav button {
   font-weight: 600;
 }
 
-/* Create Your Profile Post — blue */
 body > header nav button:nth-child(1) {
   background: linear-gradient(180deg, #6b5bff, #5b4dff);
   border-color: rgba(255,255,255,.10);
 }
 body > header nav button:nth-child(1):hover { filter: brightness(1.08); }
 
-/* Explore Newsfeed — purple (nth-child 3 because dialog is child 2) */
 body > header nav button:nth-child(3) {
   background: linear-gradient(180deg, #a855f7, #9333ea);
   border-color: rgba(255,255,255,.10);
 }
 body > header nav button:nth-child(3):hover { filter: brightness(1.08); }
 
-/* Continue to Platform — dark grey */
 body > header nav button:nth-child(4) {
   background: rgba(255,255,255,.08);
   border-color: rgba(255,255,255,.12);
 }
 
-/* ── MAIN ── */
 main { padding-top: 18px; }
 
 section[aria-label="Study buddies page layout"] {
@@ -113,7 +98,6 @@ section[aria-label="Study buddies page layout"] {
   align-items: start;
 }
 
-/* ── SIDEBAR ── */
 aside {
   padding-bottom: 80px;
 }
@@ -121,15 +105,15 @@ aside[aria-label="Study fields filters"] {
   position: sticky;
   top: 18px;
   padding: 14px 14px ;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 18px;
   background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.02));
   box-shadow: 0 10px 24px rgba(0,0,0,.28);
 }
 aside[aria-label="Study fields filters"] h2 {
   margin: 6px 8px 12px;
   font-size: 14px;
-  color: var(--muted);
+  color: rgba(255,255,255,.65);
   letter-spacing: .2px;
   display: flex;
   align-items: center;
@@ -150,19 +134,17 @@ aside[aria-label="Study fields filters"] li button:hover {
   background: rgba(255,255,255,.06);
 }
 
-/* ── RESULTS SECTION ── */
 section[aria-label="Study buddies results"] {
-  border: 1px solid transparent; border-radius: var(--radius); padding: 0;
+  border: 1px solid transparent; border-radius: 18px; padding: 0;
 }
 section[aria-label="Study buddies results"] > h2 {
   margin: 16px 0 12px; font-size: 20px;
 }
 
-/* ── SEARCH ── */
 form[role="search"] {
   display: flex; align-items: center; gap: 10px;
   padding: 12px;
-  border: 1px solid var(--border); border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10); border-radius: 18px;
   background: rgba(255,255,255,.03);
   box-shadow: 0 10px 24px rgba(0,0,0,.22);
 }
@@ -170,7 +152,7 @@ form[role="search"] label { position: absolute; width: 1px; height: 1px; overflo
 form[role="search"] input[type="search"] {
   width: 100%; padding: 12px 14px;
   border-radius: 14px; border: 1px solid rgba(255,255,255,.10);
-  background: rgba(8,12,20,.35); color: var(--text); outline: none;
+  background: rgba(8,12,20,.35); color: rgba(255,255,255,.92); outline: none;
 }
 form[role="search"] input[type="search"]::placeholder { color: rgba(255,255,255,.40); }
 form[role="search"] input[type="search"]:focus {
@@ -178,13 +160,12 @@ form[role="search"] input[type="search"]:focus {
   box-shadow: 0 0 0 4px rgba(91,77,255,.16);
 }
 
-/* ── CARDS GRID ── */
 section[aria-label="Study buddy cards"] {
   display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 16px;
 }
 section[aria-label="Study buddy cards"] article {
   padding: 16px;
-  border: 1px solid var(--border); border-radius: var(--radius);
+  border: 1px solid rgba(255,255,255,.10); border-radius: 18px;
   background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
   box-shadow: 0 10px 24px rgba(0,0,0,.25);
 }
@@ -205,15 +186,15 @@ section[aria-label="Study buddy cards"] article > header h3 {
   margin: 0; font-size: 16px; line-height: 1.2;
 }
 section[aria-label="Study buddy cards"] article > header p {
-  margin: 4px 0 0; font-size: 12px; color: var(--muted);
+  margin: 4px 0 0; font-size: 12px; color: rgba(255,255,255,.65);
 }
 section[aria-label="Study buddy cards"] article > header > div:last-child {
-  flex: 0 0 auto; font-size: 12px; color: var(--muted2);
+  flex: 0 0 auto; font-size: 12px; color: rgba(255,255,255,.50);
   padding: 6px 10px; border-radius: 999px;
   border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.03);
 }
 section[aria-label="Study buddy cards"] article > p {
-  margin: 10px 0 12px; font-size: 13px; color: var(--muted);
+  margin: 10px 0 12px; font-size: 13px; color: rgba(255,255,255,.65);
 }
 section[aria-label="Study buddy cards"] article ul[aria-label="Topics"] {
   list-style: none; margin: 0 0 12px; padding: 0;
@@ -221,32 +202,30 @@ section[aria-label="Study buddy cards"] article ul[aria-label="Topics"] {
 }
 section[aria-label="Study buddy cards"] article ul[aria-label="Topics"] li {
   font-size: 12px; padding: 6px 10px; border-radius: 999px;
-  background: var(--chipBg); color: var(--chipText);
+  background: rgba(91,77,255,.18); color: rgba(220,216,255,.95);
   border: 1px solid rgba(91,77,255,.28);
 }
 section[aria-label="Study buddy cards"] article ul[aria-label="Availability and format"] {
   list-style: none; margin: 0 0 14px; padding: 0;
-  display: flex; gap: 14px; font-size: 12px; color: var(--muted2);
+  display: flex; gap: 14px; font-size: 12px; color: rgba(255,255,255,.50);
 }
 section[aria-label="Study buddy cards"] article ul[aria-label="Availability and format"] li {
   display: flex; align-items: center; gap: 6px;
 }
 section[aria-label="Study buddy cards"] article > button {
   width: 100%; padding: 12px 14px; border-radius: 14px;
-  background: linear-gradient(180deg, var(--accent2), var(--accent));
+  background: linear-gradient(180deg, #6b5bff, #5b4dff);
   border: 1px solid rgba(255,255,255,.10);
 }
 section[aria-label="Study buddy cards"] article > button:hover { filter: brightness(1.05); }
 
-
-/* ── PROFILE MODAL ── */
 #profileModal {
   width: min(720px, calc(100vw - 36px));
   max-height: min(86vh, 860px);
   padding: 0;
-  border: 1px solid var(--border); border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10); border-radius: 22px;
   background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  color: var(--text); box-shadow: var(--shadow); overflow: hidden;
+  color: rgba(255,255,255,.92); box-shadow: 0 18px 40px rgba(0,0,0,.35); overflow: hidden;
 }
 #profileModal::backdrop { background: rgba(0,0,0,.55); backdrop-filter: blur(3px); }
 #profileModal > form {
@@ -261,7 +240,7 @@ section[aria-label="Study buddy cards"] article > button:hover { filter: brightn
 #profileModal header button { width: 38px; height: 38px; padding: 0; border-radius: 12px; }
 #profileModal section[aria-label="Profile summary"] {
   display: flex; align-items: center; gap: 14px; padding: 14px;
-  border-radius: var(--radius); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px; border: 1px solid rgba(255,255,255,.08);
   background: rgba(255,255,255,.03); box-shadow: 0 10px 24px rgba(0,0,0,.22);
 }
 #profileModal section[aria-label="Profile summary"] > div[aria-hidden="true"] {
@@ -271,12 +250,12 @@ section[aria-label="Study buddy cards"] article > button:hover { filter: brightn
   border: 1px solid rgba(255,255,255,.10);
 }
 #profileModal section[aria-label="Profile summary"] h3 { margin: 0; font-size: 16px; }
-#profileModal section[aria-label="Profile summary"] p  { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+#profileModal section[aria-label="Profile summary"] p  { margin: 4px 0 0; font-size: 13px; color: rgba(255,255,255,.65); }
 #profileModal section[aria-label="Study profile form"] { display: grid; gap: 14px; }
 #profileModal section[aria-label="Study profile form"] > div { display: grid; gap: 8px; }
 #profileModal label { font-size: 13px; color: rgba(255,255,255,.78); }
 #profileModal input, #profileModal select, #profileModal textarea {
-  width: 100%; font: inherit; color: var(--text);
+  width: 100%; font: inherit; color: rgba(255,255,255,.92);
   border-radius: 14px; border: 1px solid rgba(255,255,255,.10);
   background: rgba(8,12,20,.35); padding: 12px 14px; outline: none;
 }
@@ -292,13 +271,12 @@ section[aria-label="Study buddy cards"] article > button:hover { filter: brightn
 #profileModal footer button { border-radius: 14px; padding: 12px 14px; }
 #profileModal footer button:first-child {
   flex: 1 1 auto;
-  background: linear-gradient(180deg, var(--accent2), var(--accent));
+  background: linear-gradient(180deg, #6b5bff, #5b4dff);
   border: 1px solid rgba(255,255,255,.10);
 }
 #profileModal footer button:first-child:hover { filter: brightness(1.05); }
 #profileModal footer button:last-child { flex: 0 0 auto; min-width: 120px; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 950px) {
   section[aria-label="Study buddies page layout"] { grid-template-columns: 1fr; }
   aside[aria-label="Study fields filters"] { position: relative; top: 0;  }

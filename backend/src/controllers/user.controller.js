@@ -89,9 +89,12 @@ export const loginUser = async (req, res) => {
       UserName: users[0].UserName,
       Email,
       otpHash,
-      otpExpiresAt: Date.now() + 5 * 60 * 1000, // 5 minutes
+      otpExpiresAt: Date.now() + 5 * 60 * 1000, //5 minutes
       otpAttempts: 0,
+      otpVerified: false,
+      cryptoVerified: false,
     };
+
     console.log(`OTP for ${Email}: ${otp}`);
     const previewUrl = await sendOtpEmail(Email, otp);
 

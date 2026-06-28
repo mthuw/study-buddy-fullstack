@@ -5,7 +5,7 @@ export const initializeUserCryptoKeysTable = async () => {
     CREATE TABLE IF NOT EXISTS user_crypto_keys (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       user_id INT NOT NULL,
-      public_key TEXT NOT NULL,
+      public_key LONGTEXT NOT NULL,
       key_name VARCHAR(100) NOT NULL,
       device_name VARCHAR(100),
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

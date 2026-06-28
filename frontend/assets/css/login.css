@@ -15,7 +15,7 @@ body {
     padding: 40px 16px;
     font-family: Arial, sans-serif;
     color: #eaf0ff;
-    background: linear-gradient(135deg, #4638ED 0%, #8A1BF2 45%, #E4219C 100%); /* Replaced background variables */
+    background: linear-gradient(135deg, #4638ED 0%, #8A1BF2 45%, #E4219C 100%);
     display: grid;
     justify-content: center;
 }
